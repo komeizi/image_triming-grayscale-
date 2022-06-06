@@ -77,13 +77,10 @@ def image_split(img,i,size):
 
 def main(dir,size):
     image_path=[p for p in glob.glob(dir+os.sep+'**', recursive=True) if os.path.isfile(p)]
-    #print(image_path)
     
     for i in image_path:#tpdm
-        print(i)
         img=cv2.imread(i)
         img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-        print(img)
         image_split(img,i,size)
 
 if __name__ == '__main__':
@@ -92,8 +89,9 @@ if __name__ == '__main__':
     if len(args)==3:
 
         if os.path.isdir(args[1]):
-            print('rty')
             main(args[1],int(args[2]))
 
         else:
             print("Error")
+     else:
+        print("Error")
